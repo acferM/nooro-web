@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { Check, Pencil, Trash2 } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { useCallback, useState } from "react"
+import { DeleteTodoModal } from "./delete-todo-modal"
 
 type TodoProps = {
   task: {
@@ -110,14 +111,7 @@ export function Todo({ task }: TodoProps) {
           <Pencil />
         </Button>
 
-        <Button
-          variant="ghost"
-          size="icon"
-          className="hover:bg-[#912020] px-2"
-          onClick={handleDeleteTask}
-        >
-          <Trash2 />
-        </Button>
+        <DeleteTodoModal onConfirm={handleDeleteTask} />
       </div>
     </li>
   )
